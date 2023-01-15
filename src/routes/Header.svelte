@@ -4,7 +4,7 @@
     function openHamburger(): void {
         const settings: DrawerSettings = {
             position: 'right',
-            width: 'w-[min(25rem,65vw)]',
+            width: 'w-[min(20rem,75vw)]',
             blur: 'backdrop-blur-sm'
         };
         drawerStore.open(settings);
