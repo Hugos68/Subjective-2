@@ -5,7 +5,8 @@
         const settings: DrawerSettings = {
             position: 'right',
             width: 'w-[min(20rem,75vw)]',
-            blur: 'backdrop-blur-sm'
+            blur: 'backdrop-blur-sm',
+            duration: 250
         };
         drawerStore.open(settings);
 	}
