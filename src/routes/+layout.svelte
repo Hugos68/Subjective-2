@@ -10,8 +10,8 @@
 	import '../app.postcss';
 
 	import { supabaseClient } from '$lib/supabase';
-	import { invalidate } from '$app/navigation'
-	import { onMount } from 'svelte'
+	import { invalidate } from '$app/navigation';
+	import { onMount } from 'svelte';
 
 	onMount(() => {
 		const {
@@ -25,7 +25,7 @@
 		}
 	});
 
-	import {AppShell} from '@skeletonlabs/skeleton';
+	import { AppShell } from '@skeletonlabs/skeleton';
 	import Header from './Header.svelte';
 	import SideBar from './SideBar.svelte';
 	import Main from './Main.svelte';
@@ -38,3 +38,5 @@
 	<Main><slot /></Main>
 	<svelte:fragment slot="footer"><Footer /></svelte:fragment>
 </AppShell>
+
+

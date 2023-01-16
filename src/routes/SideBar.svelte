@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Drawer, drawerStore } from "@skeletonlabs/skeleton";
+	import { Drawer, drawerStore, LightSwitch } from "@skeletonlabs/skeleton";
 	function closeHamburger(): void {
 		drawerStore.close();
 	}
@@ -16,12 +16,20 @@
 				</svg>
 			</button>
 		</div>
-		<nav class="flex flex-col p-4">
-            <a href="/home">home</a>
-            <a href="/home">home</a>
-            <a href="/home">home</a>
-        </nav>
-		<div class="h-[var(--header-height)] border-t-2 w-full flex justify-center items-center p-4 mt-auto">
+		<div class="w-full h-full flex flex-col p-4 justify-between items-end">
+			<nav class="h-max flex flex-col">
+				<a href="/home">home</a>
+				<a href="/home">home</a>
+				<a href="/home">home</a>
+			</nav>
+			<button class="w-full flex items-center justify-between">
+				<p class="font-semibold">Theme:</p>
+				<div>
+					<LightSwitch />
+				</div>
+			</button>
+		</div>
+		<div class="h-[var(--header-height)] border-t-2 w-full flex justify-center items-center p-4">
 			<p>© All Rights Reserved</p>
 		</div>
 	</div>
