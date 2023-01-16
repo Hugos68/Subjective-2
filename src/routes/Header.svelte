@@ -32,7 +32,7 @@
         <a href="/" class="font-bold text-2xl">Subjective</a>
     </svelte:fragment>
 	<svelte:fragment slot="trail">
-        <nav class="hidden md:flex items-center gap-4">
+        <nav class="list-nav hidden md:flex items-center gap-4">
             {#each ["shop", "about"] as navItem}
                 <a class="capitalize" href="/{navItem}">{navItem}</a>
             {/each}

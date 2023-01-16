@@ -102,7 +102,7 @@
 				</button>
 			</div>
 			<div class="w-full h-full flex flex-col p-4 justify-between items-end bg-surface-200-900-token">
-				<nav class="h-max w-full flex flex-col items-end">
+				<nav class="list-nav h-max w-full flex flex-col items-end">
 					{#each ["shop", "about"] as navItem, i} 
 						<a class="font-semibold text-lg w-full text-end capitalize" href="/{navItem}" on:click={() => closeHamburger()} in:fly={{x: 500, delay: i*50}}>{navItem}</a>
 					{/each}
