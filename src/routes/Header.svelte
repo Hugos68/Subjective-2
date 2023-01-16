@@ -29,7 +29,7 @@
 
 <AppBar class="h-[var(--header-height)]">
 	<svelte:fragment slot="lead">
-        <a href="/home" class="font-bold text-2xl">Subjective</a>
+        <a href="/" class="font-bold text-2xl">Subjective</a>
     </svelte:fragment>
 	<svelte:fragment slot="trail">
         <nav class="hidden md:flex items-center gap-4">
