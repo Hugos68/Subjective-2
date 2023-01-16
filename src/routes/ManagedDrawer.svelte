@@ -45,7 +45,7 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure') {
+            else if (result.type='failure' && result.data) {
                 const t: ToastSettings = {
                     message: result.data?.message,
                     preset: 'error',
@@ -68,7 +68,7 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure') {
+            else if (result.type='failure' && result.data) {
                 const t: ToastSettings = {
                     message: result.data?.message,
                     preset: 'error',
@@ -131,7 +131,7 @@
 					<span>Password:</span>
 					<input type="password" id="password" name="password">
 				</label>
-				<button class="btn btn-lg btn-filled-secondary mt-5" formaction="/?/login" type="submit">Login</button>
+				<button class="btn btn-filled-secondary mt-5" formaction="/?/login" type="submit">Login</button>
 				<label class="w-full">
 					<span class="text-center">Or login using:</span>
 					<div class="flex justify-evenly">
@@ -162,7 +162,7 @@
 					<span>Confirm Password:</span>
 					<input type="password" id="confirmPassword" name="confirmPassword" minlength="6" required>
 				</label>
-				<button class="btn btn-lg btn-filled-secondary mt-5" formaction="/?/register" type="submit">Register</button>
+				<button class="btn btn-filled-secondary mt-5" formaction="/?/register" type="submit">Register</button>
 			</form>
 		{/if}
 		</div>
