@@ -92,7 +92,7 @@
 				{#if !loggedIn} 
 					<button class="btn btn-sm btn-filled-tertiary" on:click={() => openConnect()}>Connect</button>
 				{:else}
-					<a class="btn btn-sm btn-filled-tertiary" href="/account">Account</a>
+					<a class="btn btn-sm btn-filled-tertiary" href="/account" on:click={() => closeHamburger()}>Account</a>
 				{/if}
 				<button class="btn p-0" on:click={() => closeHamburger()}>
 					<svg class="w-8 h-8" viewBox="0 0 100 100">
@@ -104,7 +104,7 @@
 			<div class="w-full h-full flex flex-col p-4 justify-between items-end bg-surface-200-900-token">
 				<nav class="h-max w-full flex flex-col items-end">
 					{#each ["shop", "about"] as navItem, i} 
-						<a class="font-semibold text-lg w-full text-end capitalize" href="/{navItem}" in:fly={{x: 500, delay: i*50}}>{navItem}</a>
+						<a class="font-semibold text-lg w-full text-end capitalize" href="/{navItem}" on:click={() => closeHamburger()} in:fly={{x: 500, delay: i*50}}>{navItem}</a>
 					{/each}
 				</nav>
 				<button class="w-full flex items-center justify-between" on:click={() => toggleLightSwitch()}>
