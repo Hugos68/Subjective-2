@@ -7,7 +7,7 @@
 
 <Drawer class="md:hidden">
 	<div class="flex flex-col h-screen items-end">
-		<div class="h-[var(--header-height)] w-full border-b-2 flex justify-between items-center p-4">
+		<div class="h-[var(--header-height)] w-full border-b-2 border-surface-700-200-token flex justify-between items-center p-4">
 			<h2>Subjective</h2>
 			<button class="btn p-0" on:click={() => closeHamburger()}>
 				<svg class="w-8 h-8" viewBox="0 0 100 100">
@@ -29,7 +29,7 @@
 				</div>
 			</button>
 		</div>
-		<div class="h-[var(--header-height)] border-t-2 w-full flex justify-center items-center p-4">
+		<div class="h-[var(--header-height)] border-t-2 border-surface-700-200-token w-full flex justify-center items-center p-4">
 			<p>© All Rights Reserved</p>
 		</div>
 	</div>
