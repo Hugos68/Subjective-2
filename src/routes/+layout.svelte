@@ -25,7 +25,7 @@
 		}
 	});
 
-	import { AppShell } from '@skeletonlabs/skeleton';
+	import { AppShell, Toast } from '@skeletonlabs/skeleton';
 	import Header from './Header.svelte';
 	import ManagedDrawer from './ManagedDrawer.svelte';
 	import Main from './Main.svelte';
@@ -39,5 +39,7 @@
 </AppShell>
 
 <ManagedDrawer />
+
+<Toast />
 
 

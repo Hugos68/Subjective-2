@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { applyAction, enhance, type SubmitFunction } from "$app/forms";
 	import { page } from "$app/stores";
-	import { Drawer, drawerStore, LightSwitch, storeLightSwitch, Tab, TabGroup, type DrawerSettings } from "@skeletonlabs/skeleton";	
+	import { Drawer, drawerStore, LightSwitch, storeLightSwitch, Tab, TabGroup, toastStore, type DrawerSettings, type ToastSettings } from "@skeletonlabs/skeleton";	
 	import { writable, type Writable } from "svelte/store";
 	import { fly } from "svelte/transition";
 
@@ -18,6 +18,8 @@
             blur: 'backdrop-blur-sm',
             duration: 250
         };
+		
+		// This timeout is required in order for the hamburger drawer to close properly before opening the connect drawer
 		setTimeout(() => drawerStore.open(settings), 300);
 	}
 
@@ -34,11 +36,47 @@
 	const submitLogin: SubmitFunction = () => {
 		return async ({result}) => {
 			await applyAction(result);
+            if (result.type==='success') {
+                const t: ToastSettings = {
+                    message: 'Logged in successfully, Welcome!',
+                    preset: 'success',
+                    autohide: true,
+                    timeout: 5000,
+                };
+                toastStore.trigger(t);
+            }
+            else if (result.type='failure') {
+                const t: ToastSettings = {
+                    message: result.data?.message,
+                    preset: 'error',
+                    autohide: true,
+                    timeout: 5000,
+                };
+                toastStore.trigger(t);
+            }
 		}
 	}
 	const submitRegister: SubmitFunction = () => {
 		return async ({result}) => {
 			await applyAction(result);
+			if (result.type==='success') {
+                const t: ToastSettings = {
+                    message: 'Success! Confirmation email sent...',
+                    preset: 'success',
+                    autohide: true,
+                    timeout: 5000,
+                };
+                toastStore.trigger(t);
+            }
+            else if (result.type='failure') {
+                const t: ToastSettings = {
+                    message: result.data?.message,
+                    preset: 'error',
+                    autohide: true,
+                    timeout: 5000,
+                };
+                toastStore.trigger(t);
+            }
 		}
 	}
 </script>
