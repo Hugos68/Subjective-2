@@ -1,12 +1,25 @@
 <script lang="ts">
 	import { enhance } from "$app/forms";
-	import { Drawer, drawerStore, LightSwitch, storeLightSwitch, Tab, TabGroup } from "@skeletonlabs/skeleton";	
+	import { page } from "$app/stores";
+	import { Drawer, drawerStore, LightSwitch, storeLightSwitch, Tab, TabGroup, type DrawerSettings } from "@skeletonlabs/skeleton";	
 	import { writable, type Writable } from "svelte/store";
 	import { fly } from "svelte/transition";
 
 	function closeHamburger(): void {
 		drawerStore.close();
 	}	
+
+	function openConnect(): void {
+		drawerStore.close();
+        const settings: DrawerSettings = {
+            id: 'connect',
+            position: 'top',
+            height: 'h-max',
+            blur: 'backdrop-blur-sm',
+            duration: 250
+        };
+		setTimeout(() => drawerStore.open(settings), 300);
+	}
 
 	function toggleLightSwitch(): void {
 		storeLightSwitch.update(state => {return !state});
@@ -15,13 +28,19 @@
 	}
 
 	const storeTab: Writable<string> = writable('login');
+
+	$: loggedIn = $page.data.session!==null;
 </script>
 
 <Drawer	>
 	{#if $drawerStore.id==='hamburger'}
 		<div class="flex flex-col h-screen items-end">
 			<div class="h-[var(--header-height)] w-full border-b-2 border-surface-700-200-token flex justify-between items-center p-4">
-				<h2>Subjective</h2>
+				{#if !loggedIn} 
+					<button class="btn btn-filled-tertiary" on:click={() => openConnect()}>Connect</button>
+				{:else}
+					<a class="btn btn-filled-tertiary" href="/account">Account</a>
+				{/if}
 				<button class="btn p-0" on:click={() => closeHamburger()}>
 					<svg class="w-8 h-8" viewBox="0 0 100 100">
 						<line stroke="currentColor" x1="10" y1="90" x2="90" y2="10" stroke-width="10" />
