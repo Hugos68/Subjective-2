@@ -47,7 +47,7 @@ export const actions: Actions = {
             });
         }
         
-        throw redirect(303, '/');
+        return {success: true}
     },
     register: async ({request, locals}) => {
         const body = Object.fromEntries(await request.formData());
@@ -89,6 +89,6 @@ export const actions: Actions = {
             });
         }
 
-        throw redirect(303, '/login');
+        return {success: true}
     }
 };

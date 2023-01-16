@@ -1,3 +1,8 @@
+<script>
+
+	import { enhance } from "$app/forms";
+
+</script>
 <div class="mt-[12.5vh]">
     <h1 class="text-center text-[clamp(3.25rem,15vw,10rem)] leading-snug flex flex-col">
         <span>Welcome to</span>
