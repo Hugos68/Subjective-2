@@ -26,8 +26,8 @@
 		</div>
 		<div class="w-full h-full flex flex-col p-4 justify-between items-end bg-surface-200-900-token">
 			<nav class="h-max w-full flex flex-col items-end">
-				{#each ["home", "shop", "about"] as navItem, i} 
-					<a class="w-full text-end capitalize" href="/{navItem}" in:fly={{x: 500, delay: i*50}}>{navItem}</a>
+				{#each ["shop", "about"] as navItem, i} 
+					<a class="font-semibold text-lg w-full text-end capitalize" href="/{navItem}" in:fly={{x: 500, delay: i*50}}>{navItem}</a>
 				{/each}
 			</nav>
 			<button class="w-full flex items-center justify-between" on:click={() => toggleLightSwitch()}>

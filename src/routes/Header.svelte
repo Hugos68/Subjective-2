@@ -25,7 +25,7 @@
             </svg>
         </button>
         <nav class="hidden md:flex gap-4">
-            {#each ["home", "shop", "about"] as navItem}
+            {#each ["shop", "about"] as navItem}
                 <a class="capitalize" href="/{navItem}">{navItem}</a>
             {/each}
         </nav>
