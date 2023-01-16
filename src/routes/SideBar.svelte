@@ -1,7 +1,16 @@
 <script lang="ts">
-	import { Drawer, drawerStore, LightSwitch } from "@skeletonlabs/skeleton";
+	import LightSwitch from '$lib/components/lightswitch/LightSwitch.svelte'
+	import { Drawer, drawerStore, storeLightSwitch } from "@skeletonlabs/skeleton";	
+
 	function closeHamburger(): void {
 		drawerStore.close();
+	}
+
+	function toggleLightSwitch(): void {
+		storeLightSwitch.update(value => {return !value});
+		const elemHtmlClassList = document.querySelector('lightswitch')?.classList;
+		if (elemHtmlClassList) 	$storeLightSwitch ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
+	
 	}
 </script>
 
@@ -22,7 +31,7 @@
 				<a href="/home">home</a>
 				<a href="/home">home</a>
 			</nav>
-			<button class="w-full flex items-center justify-between">
+			<button class="btn w-full flex items-center justify-between bg-red-600" on:click={() => toggleLightSwitch()}>
 				<p class="font-semibold">Theme:</p>
 				<div>
 					<LightSwitch />
