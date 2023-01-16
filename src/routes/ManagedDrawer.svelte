@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { enhance } from "$app/forms";
+	import { applyAction, enhance, type SubmitFunction } from "$app/forms";
 	import { page } from "$app/stores";
 	import { Drawer, drawerStore, LightSwitch, storeLightSwitch, Tab, TabGroup, type DrawerSettings } from "@skeletonlabs/skeleton";	
 	import { writable, type Writable } from "svelte/store";
@@ -30,6 +30,17 @@
 	const storeTab: Writable<string> = writable('login');
 
 	$: loggedIn = $page.data.session!==null;
+
+	const submitLogin: SubmitFunction = () => {
+		return async ({result}) => {
+			await applyAction(result);
+		}
+	}
+	const submitRegister: SubmitFunction = () => {
+		return async ({result}) => {
+			await applyAction(result);
+		}
+	}
 </script>
 
 <Drawer	>
@@ -72,7 +83,7 @@
 		</TabGroup>
 		<div class="p-12 mx-auto w-[min(50rem,100%)]">
 			{#if $storeTab==="login"}
-			<form class="flex flex-col items-center gap-6" method="POST" use:enhance>
+			<form class="flex flex-col items-center gap-6" method="POST" use:enhance={submitLogin}>
 				<h2>Login</h2>
 				<label class="w-full" for="email">
 					<span>Email:</span>
@@ -99,7 +110,7 @@
 				</label>
 			</form>
 		{:else if $storeTab==="register"}
-			<form class="flex flex-col items-center gap-6" method="POST" use:enhance>
+			<form class="flex flex-col items-center gap-6" method="POST" use:enhance={submitRegister}>
 				<h2>Register</h2>
 				<label class="w-full" for="email">
 					<span>Email:</span>
