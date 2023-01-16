@@ -12,4 +12,4 @@
 	}
 </script>
 
-<button on:click={() => openLogin()}>Connect</button>
+<button class="btn btn-filled-tertiary" on:click={() => openLogin()}>Connect</button>

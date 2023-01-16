@@ -22,8 +22,16 @@
         <a href="/home" class="font-bold text-2xl">Subjective</a>
     </svelte:fragment>
 	<svelte:fragment slot="trail">
+        <nav class="hidden md:flex items-center gap-4">
+            {#each ["shop", "about"] as navItem}
+                <a class="capitalize" href="/{navItem}">{navItem}</a>
+            {/each}
+        </nav>
         <ConnectButton />
-        <div class="h-[calc(0.5*var(--header-height))] w-0.5 bg-surface-300-600-token"></div>
+        <div class="h-[calc(0.5*var(--header-height))] w-0.5 bg-surface-300-600-token hidden md:block"></div>
+        <div class="hidden md:block">
+            <LightSwitch  />
+        </div>
         <button class="btn p-0 md:hidden " on:click={() => openHamburger()}>
             <svg class="w-8 h-8 group" viewBox="0 0 100 100">
                 <rect class="group-hover:translate-x-[15px] group-active:translate-x-[15px] transition-transform duration-300 ease-out " fill="currentColor" width="75" height="10" x="25" y="15"></rect>
@@ -31,14 +39,5 @@
                 <rect class="group-hover:translate-x-[10px] group-active:translate-x-[10px] transition-transform duration-300 ease-out " fill="currentColor" width="90" height="10" x="10" y="75"></rect>
             </svg>
         </button>
-        <nav class="hidden md:flex items-center gap-4">
-            {#each ["shop", "about"] as navItem}
-                <a class="capitalize" href="/{navItem}">{navItem}</a>
-            {/each}
-        </nav>
-        <div class="h-[calc(0.5*var(--header-height))] w-0.5 bg-surface-300-600-token hidden md:block"></div>
-        <div class="hidden md:block">
-            <LightSwitch  />
-        </div>
     </svelte:fragment>
 </AppBar>
