@@ -18,7 +18,7 @@
 
 {#if mounted}
     {#key $page.route.id}
-        <div in:fly={{x: 25, y: 50, duration: 500}}>
+        <div class="p-4" in:fly={{x: 25, y: 50, duration: 500}}>
             <slot />  
         </div>
     {/key}
