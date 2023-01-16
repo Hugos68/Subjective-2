@@ -8,7 +8,7 @@ export const actions: Actions = {
         const body = Object.fromEntries(await request.formData());
 
         const provider = url.searchParams.get("provider") as Provider;
-        
+    
 
         if (provider) {
             const {data, error: err } = await locals.sb.auth.signInWithOAuth({
