@@ -47,7 +47,7 @@ export const actions: Actions = {
             });
         }
         
-        throw redirect(303, '/home');
+        throw redirect(303, '/');
     },
     register: async ({request, locals}) => {
         const body = Object.fromEntries(await request.formData());

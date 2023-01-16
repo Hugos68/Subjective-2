@@ -26,7 +26,7 @@ export const handleAuthRouting = (async ({ event, resolve }) => {
     const url = new URL(event.request.url);
     const loggedIn = event.locals.session!==null;
     if (!loggedIn && (url.pathname==='/account')) {
-        url.pathname = '/home'
+        url.pathname = '/'
         return Response.redirect(url.toString(), 302)
     }
     return resolve(event);
