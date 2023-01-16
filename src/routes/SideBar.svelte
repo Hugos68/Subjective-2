@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { Drawer, drawerStore, LightSwitch, storeLightSwitch } from "@skeletonlabs/skeleton";	
+	import { fly } from "svelte/transition";
 
 	function closeHamburger(): void {
 		drawerStore.close();
 	}
 
 	function toggleLightSwitch(): void {
-		storeLightSwitch.update(value => {return !value});
+		storeLightSwitch.update(state => {return !state});
 		const elemHtmlClassList = document.documentElement.classList;
-		console.log(elemHtmlClassList);
 		$storeLightSwitch ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
 	}
 </script>
@@ -25,10 +25,10 @@
 			</button>
 		</div>
 		<div class="w-full h-full flex flex-col p-4 justify-between items-end bg-surface-200-900-token">
-			<nav class="h-max flex flex-col">
-				<a href="/home">home</a>
-				<a href="/home">home</a>
-				<a href="/home">home</a>
+			<nav class="h-max w-full flex flex-col items-end">
+				{#each ["home", "shop", "about"] as navItem, i} 
+					<a class="w-full text-end capitalize" href="/{navItem}" in:fly={{x: 500, delay: i*50}}>{navItem}</a>
+				{/each}
 			</nav>
 			<button class="w-full flex items-center justify-between" on:click={() => toggleLightSwitch()}>
 				<p class="font-semibold">Theme:</p>
@@ -37,7 +37,7 @@
 				</div>
 			</button>
 		</div>
-		<div class="h-[var(--header-height)] border-t-2 border-surface-700-200-token w-full flex justify-center items-center p-4">
+		<div class="h-[var(--header-height)] border-t-2 border-surface-700-200-token opacity-50 5 w-full flex justify-center items-center p-4">
 			<p>© All Rights Reserved</p>
 		</div>
 	</div>

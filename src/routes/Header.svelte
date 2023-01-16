@@ -24,10 +24,10 @@
                 <rect class="group-hover:translate-x-[10px] group-active:translate-x-[10px] transition-transform duration-300 ease-out " fill="currentColor" width="90" height="10" x="10" y="75"></rect>
             </svg>
         </button>
-        <nav class="hidden md:block">
-            <a href="/home">home</a>
-            <a href="/home">home</a>
-            <a href="/home">home</a>
+        <nav class="hidden md:flex gap-4">
+            {#each ["home", "shop", "about"] as navItem}
+                <a class="capitalize" href="/{navItem}">{navItem}</a>
+            {/each}
         </nav>
         <div class="h-[calc(0.5*var(--header-height))] w-0.5 bg-surface-300-600-token hidden md:block"></div>
         <div class="hidden md:block">
