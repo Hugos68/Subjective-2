@@ -34,9 +34,10 @@
 
 <AppShell>	
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<svelte:fragment slot="sidebarRight"><ManagedDrawer /></svelte:fragment>
 	<Main><slot /></Main>
 	<svelte:fragment slot="footer"><Footer /></svelte:fragment>
 </AppShell>
+
+<ManagedDrawer />
 
 

@@ -1,13 +1,23 @@
 <script lang="ts">
 	import { page } from "$app/stores";
 	import { AppBar, drawerStore, LightSwitch, type DrawerSettings } from "@skeletonlabs/skeleton";
-	import ConnectButton from "$lib/components/ConnectButton.svelte";
     
     function openHamburger(): void {
         const settings: DrawerSettings = {
             id: 'hamburger',
             position: 'right',
             width: 'w-[min(20rem,75vw)]',
+            blur: 'backdrop-blur-sm',
+            duration: 250
+        };
+        drawerStore.open(settings);
+	}
+
+    function openConnect(): void {
+        const settings: DrawerSettings = {
+            id: 'connect',
+            position: 'top',
+            height: 'h-max',
             blur: 'backdrop-blur-sm',
             duration: 250
         };
@@ -27,7 +37,7 @@
                 <a class="capitalize" href="/{navItem}">{navItem}</a>
             {/each}
         </nav>
-        <ConnectButton />
+        <button class="btn btn-filled-tertiary" on:click={() => openConnect()}>Connect</button>
         <div class="h-[calc(0.5*var(--header-height))] w-0.5 bg-surface-300-600-token hidden md:block"></div>
         <div class="hidden md:block">
             <LightSwitch  />
