@@ -27,14 +27,14 @@
 
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import Header from './Header.svelte';
-	import SideBar from './SideBar.svelte';
+	import ManagedDrawer from './ManagedDrawer.svelte';
 	import Main from './Main.svelte';
 	import Footer from './Footer.svelte';
 </script>
 
-<AppShell>
+<AppShell>	
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<svelte:fragment slot="sidebarRight"><SideBar /></svelte:fragment>
+	<svelte:fragment slot="sidebarRight"><ManagedDrawer /></svelte:fragment>
 	<Main><slot /></Main>
 	<svelte:fragment slot="footer"><Footer /></svelte:fragment>
 </AppShell>
