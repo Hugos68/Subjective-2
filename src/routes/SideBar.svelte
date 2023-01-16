@@ -24,7 +24,7 @@
 				</svg>
 			</button>
 		</div>
-		<div class="w-full h-full flex flex-col p-4 justify-between items-end">
+		<div class="w-full h-full flex flex-col p-4 justify-between items-end bg-surface-200-900-token">
 			<nav class="h-max flex flex-col">
 				<a href="/home">home</a>
 				<a href="/home">home</a>
@@ -32,7 +32,7 @@
 			</nav>
 			<button class="w-full flex items-center justify-between" on:click={() => toggleLightSwitch()}>
 				<p class="font-semibold">Theme:</p>
-				<div>
+				<div class="pointer-events-none">
 					<LightSwitch />
 				</div>
 			</button>
