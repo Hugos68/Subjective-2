@@ -37,7 +37,11 @@
                 <a class="capitalize" href="/{navItem}">{navItem}</a>
             {/each}
         </nav>
-        <button class="btn btn-filled-tertiary" on:click={() => openConnect()}>Connect</button>
+        {#if !loggedIn} 
+            <button class="btn btn-filled-tertiary" on:click={() => openConnect()}>Connect</button>
+        {:else}
+            <a class="btn btn-filled-tertiary" href="/account">Account</a>
+        {/if}
         <div class="h-[calc(0.5*var(--header-height))] w-0.5 bg-surface-300-600-token hidden md:block"></div>
         <div class="hidden md:block">
             <LightSwitch  />
