@@ -87,7 +87,7 @@
 
 <Drawer	>
 	{#if $drawerStore.id==='hamburger'}
-		<div class="flex flex-col h-screen items-end">
+		<div class="flex flex-col h-screen items-end overflow-x-hidden">
 			<div class="h-[var(--header-height)] w-full border-b-2 border-surface-700-200-token flex justify-between items-center p-4">
 				{#if !loggedIn} 
 					<button class="btn btn-sm btn-filled-tertiary" on:click={() => openConnect()}>Connect</button>
