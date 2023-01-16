@@ -1,18 +1,25 @@
 import { AuthApiError, type Provider } from "@supabase/supabase-js";
-import type { Actions } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
 import { fail, redirect } from "@sveltejs/kit";
 
-export const actions: Actions = {
-    login: async ({request, locals, url, cookies}) => {
 
+export const load: PageServerLoad = async () => {
+    throw redirect(302, "/homee");
+};
+
+export const actions: Actions = {
+    login: async ({request, locals, url}) => {
+            
         const body = Object.fromEntries(await request.formData());
 
         const provider = url.searchParams.get("provider") as Provider;
+        
 
         if (provider) {
             const {data, error: err } = await locals.sb.auth.signInWithOAuth({
                 provider: provider
             });
+                        
             if (err) {
                 return fail(400, {
                     message: 'Something went wrong'
@@ -39,13 +46,15 @@ export const actions: Actions = {
                     message: err.message
                 });
             }
+            
             return fail(500, {
                 message: err.message
             });
         }
+        
         throw redirect(303, '/home');
     },
-    signup: async ({request, locals}) => {
+    register: async ({request, locals}) => {
         const body = Object.fromEntries(await request.formData());
 
         if (body.password!==body.confirmPassword) {
