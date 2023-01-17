@@ -25,6 +25,12 @@
 	}
 
     $: loggedIn = $page.data.session!==null;
+
+    let navList = ["shop", "about"];
+	$: {
+		if (loggedIn) navList = ["shop", "about", "account"];
+		else navList = ["shop", "about"];
+	}
 </script>
 
 <AppBar class="h-[var(--header-height)]">
@@ -33,13 +39,11 @@
     </svelte:fragment>
 	<svelte:fragment slot="trail">
         <nav class="list-nav hidden md:flex items-center gap-4">
-            {#each ["shop", "about"] as navItem}
+            {#each navList as navItem}
                 <a class="capitalize" href="/{navItem}">{navItem}</a>
             {/each}
             {#if !loggedIn} 
-                <button class="btn btn-sm bg-primary-400-500-token" on:click={() => openConnect()}>Connect</button>
-            {:else}
-                <a class="btn btn-sm bg-primary-400-500-token" href="/account">Account</a>
+                <button class="btn bg-primary-400-500-token" on:click={() => openConnect()}>Connect</button>
             {/if}
         </nav>
         <div class="h-[calc(0.5*var(--header-height))] w-0.5 bg-surface-400-500-token hidden md:block"></div>

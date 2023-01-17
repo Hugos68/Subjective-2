@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { type SubmitFunction, enhance, applyAction } from "$app/forms";
+	import { applyAction, enhance, type SubmitFunction } from "$app/forms";
 	import { page } from "$app/stores";
 	import { Avatar, toastStore, type ToastSettings } from "@skeletonlabs/skeleton";
-
+    
     const submitLogout: SubmitFunction = () => {
         return async ({result}) => {
             await applyAction(result);

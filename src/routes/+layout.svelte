@@ -5,7 +5,7 @@
 	// 1. Theme
 	// 2. All
 	// 3. App
-	import '@skeletonlabs/skeleton/themes/theme-rocket.css';
+	import './../theme.css';
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
 

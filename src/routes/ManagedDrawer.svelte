@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { applyAction, enhance, type SubmitFunction } from "$app/forms";
-	import { invalidate, invalidateAll } from "$app/navigation";
+	import { invalidateAll } from "$app/navigation";
 	import { page } from "$app/stores";
 	import { Drawer, drawerStore, LightSwitch, storeLightSwitch, Tab, TabGroup, toastStore, type DrawerSettings, type ToastSettings } from "@skeletonlabs/skeleton";	
 	import { writable, type Writable } from "svelte/store";
@@ -83,6 +83,12 @@
             }
 		}
 	}
+
+	let navList = ["shop", "about"];
+	$: {
+		if (loggedIn) navList = ["shop", "about", "account"];
+		else navList = ["shop", "about"];
+	}
 </script>
 
 <Drawer	>
@@ -90,11 +96,9 @@
 		<div class="flex flex-col h-screen items-end overflow-x-hidden">
 			<div class="h-[var(--header-height)] w-full border-b-2 border-surface-700-200-token flex justify-between items-center p-4">
 				{#if !loggedIn} 
-					<button class="btn btn-sm bg-primary-400-500-token" on:click={() => openConnect()}>Connect</button>
-				{:else}
-					<a class="btn btn-sm bg-primary-400-500-token" href="/account" on:click={() => closeHamburger()}>Account</a>
+					<button class="btn bg-primary-400-500-token" on:click={() => openConnect()}>Connect</button>
 				{/if}
-				<button class="btn p-0" on:click={() => closeHamburger()}>
+				<button class="ml-auto btn p-0" on:click={() => closeHamburger()}>
 					<svg class="w-8 h-8" viewBox="0 0 100 100">
 						<line stroke="currentColor" x1="10" y1="90" x2="90" y2="10" stroke-width="10" />
 						<line stroke="currentColor" x1="10" y1="10" x2="90" y2="90" stroke-width="10" />
@@ -103,8 +107,8 @@
 			</div>
 			<div class="w-full h-full flex flex-col p-4 justify-between items-end bg-surface-200-900-token">
 				<nav class="list-nav h-max w-full flex flex-col items-end">
-					{#each ["shop", "about"] as navItem, i} 
-						<a class="font-semibold text-lg w-full text-end capitalize" href="/{navItem}" on:click={() => closeHamburger()} in:fly={{x: 500, delay: i*50}}>{navItem}</a>
+					{#each navList as navItem, i} 
+						<a class="w-full text-end capitalize" href="/{navItem}" on:click={() => closeHamburger()} in:fly={{x: 500, delay: i*50}}>{navItem}</a>
 					{/each}
 				</nav>
 				<button class="w-full flex items-center justify-between" on:click={() => toggleLightSwitch()}>
