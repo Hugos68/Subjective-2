@@ -91,12 +91,4 @@ export const actions: Actions = {
 
         return {success: true}
     },
-    logout: async ({locals}) => {
-        const { error: err } = await locals.sb.auth.signOut();
-
-        if (err) {
-            throw fail(500, {message: "Something went wrong logging you out."});
-        }
-        throw redirect(303,'/');
-    }
-};
+}

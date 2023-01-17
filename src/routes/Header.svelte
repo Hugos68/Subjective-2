@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from "$app/stores";
 	import { AppBar, drawerStore, LightSwitch, type DrawerSettings } from "@skeletonlabs/skeleton";
+    import AccountDropDownButton from "$lib/components/AccountDropDownButton.svelte"
     
     function openHamburger(): void {
         const settings: DrawerSettings = {
@@ -25,12 +26,6 @@
 	}
 
     $: loggedIn = $page.data.session!==null;
-
-    let navList = ["shop", "about"];
-	$: {
-		if (loggedIn) navList = ["shop", "about", "account"];
-		else navList = ["shop", "about"];
-	}
 </script>
 
 <AppBar class="h-[var(--header-height)]">
@@ -39,11 +34,13 @@
     </svelte:fragment>
 	<svelte:fragment slot="trail">
         <nav class="list-nav hidden md:flex items-center gap-4">
-            {#each navList as navItem}
+            {#each ["shop", "about"] as navItem}
                 <a class="capitalize" href="/{navItem}">{navItem}</a>
             {/each}
             {#if !loggedIn} 
                 <button class="btn bg-primary-400-500-token" on:click={() => openConnect()}>Connect</button>
+            {:else}
+                <AccountDropDownButton />
             {/if}
         </nav>
         <div class="h-[calc(0.5*var(--header-height))] w-0.5 bg-surface-400-500-token hidden md:block"></div>

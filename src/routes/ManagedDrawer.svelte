@@ -2,6 +2,7 @@
 	import { applyAction, enhance, type SubmitFunction } from "$app/forms";
 	import { invalidateAll } from "$app/navigation";
 	import { page } from "$app/stores";
+	import AccountDropDownButton from "$lib/components/AccountDropDownButton.svelte";
 	import { Drawer, drawerStore, LightSwitch, storeLightSwitch, Tab, TabGroup, toastStore, type DrawerSettings, type ToastSettings } from "@skeletonlabs/skeleton";	
 	import { writable, type Writable } from "svelte/store";
 	import { fly } from "svelte/transition";
@@ -83,12 +84,6 @@
             }
 		}
 	}
-
-	let navList = ["shop", "about"];
-	$: {
-		if (loggedIn) navList = ["shop", "about", "account"];
-		else navList = ["shop", "about"];
-	}
 </script>
 
 <Drawer	>
@@ -97,9 +92,11 @@
 			<div class="h-[var(--header-height)] w-full border-b-2 border-surface-700-200-token flex justify-between items-center p-4">
 				{#if !loggedIn} 
 					<button class="btn bg-primary-400-500-token" on:click={() => openConnect()}>Connect</button>
+				{:else}
+					<AccountDropDownButton />
 				{/if}
-				<button class="ml-auto btn p-0" on:click={() => closeHamburger()}>
-					<svg class="w-8 h-8" viewBox="0 0 100 100">
+				<button class="btn p-0" on:click={() => closeHamburger()}>
+					<svg class="w-6 h-6" viewBox="0 0 100 100">
 						<line stroke="currentColor" x1="10" y1="90" x2="90" y2="10" stroke-width="10" />
 						<line stroke="currentColor" x1="10" y1="10" x2="90" y2="90" stroke-width="10" />
 					</svg>
@@ -107,7 +104,7 @@
 			</div>
 			<div class="w-full h-full flex flex-col p-4 justify-between items-end bg-surface-200-900-token">
 				<nav class="list-nav h-max w-full flex flex-col items-end">
-					{#each navList as navItem, i} 
+					{#each ["shop", "about"] as navItem, i} 
 						<a class="w-full text-end capitalize" href="/{navItem}" on:click={() => closeHamburger()} in:fly={{x: 500, delay: i*50}}>{navItem}</a>
 					{/each}
 				</nav>
