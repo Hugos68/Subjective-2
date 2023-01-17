@@ -37,8 +37,5 @@
         <p><span class="font-semibold">Email: </span>{$page.data.session?.user.email}</p>
     </div>
 	<footer class="card-footer flex justify-center mt-24">
-        <form action="/?/logout" method="POST" use:enhance={submitLogout}>
-            <button type="submit" class="btn btn-filled-error">Logout</button>
-        </form>
     </footer>
 </div>
