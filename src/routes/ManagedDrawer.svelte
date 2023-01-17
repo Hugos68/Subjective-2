@@ -89,7 +89,7 @@
 <Drawer	>
 	{#if $drawerStore.id==='hamburger'}
 		<div class="flex flex-col h-screen items-end overflow-x-hidden">
-			<div class="h-[var(--header-height)] w-full border-b-2 border-surface-700-200-token flex justify-between items-center p-4">
+			<div class="w-full border-b-2 border-surface-700-200-token flex justify-between items-center p-4">
 				{#if !loggedIn} 
 					<button class="btn bg-primary-400-500-token" on:click={() => openConnect()}>Connect</button>
 				{:else}
@@ -108,8 +108,9 @@
 						<a class="w-full text-end capitalize" href="/{navItem}" on:click={() => closeHamburger()} in:fly={{x: 500, delay: i*50}}>{navItem}</a>
 					{/each}
 				</nav>
-				<button class="w-full flex items-center justify-between" on:click={() => toggleLightSwitch()}>
-					<p class="font-semibold">Theme:</p>
+				<button class="w-full flex items-center justify-between p-4" on:click={() => toggleLightSwitch()}>
+					<p>Theme</p>
+					<div class="h-0.5 w-full mx-8 bg-surface-400-500-token"></div>
 					<div class="pointer-events-none">
 						<LightSwitch />
 					</div>
