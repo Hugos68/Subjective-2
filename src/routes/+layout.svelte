@@ -5,7 +5,7 @@
 	// 1. Theme
 	// 2. All
 	// 3. App
-	import '../theme.css';
+	import '@skeletonlabs/skeleton/themes/theme-rocket.css';
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
 
@@ -28,13 +28,12 @@
 	import { AppShell, Toast } from '@skeletonlabs/skeleton';
 	import Header from './Header.svelte';
 	import ManagedDrawer from './ManagedDrawer.svelte';
-	import Main from './Main.svelte';
 	import Footer from './Footer.svelte';
 </script>
 
 <AppShell>	
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<Main><slot /></Main>
+	<slot />  
 	<svelte:fragment slot="footer"><Footer /></svelte:fragment>
 </AppShell>
 
