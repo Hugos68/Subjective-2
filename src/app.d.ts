@@ -6,12 +6,12 @@ declare global {
     declare namespace App {
 
         interface Locals {
-            sb: TypedSupabaseClient
+            sb: TypedSupabaseClient,
             session: Session | null
         }
 
         interface PageData {
-            session: import('@supabase/supabase-js').Session | null,
+            session: Session | null,
             consentCookie: ConsentCookie | null
         }
 

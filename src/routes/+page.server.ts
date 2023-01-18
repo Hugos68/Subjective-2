@@ -13,7 +13,6 @@ export const actions: Actions = {
 
         const provider = url.searchParams.get("provider") as Provider;
     
-
         if (provider) {
             const {data, error: err } = await locals.sb.auth.signInWithOAuth({
                 provider: provider
