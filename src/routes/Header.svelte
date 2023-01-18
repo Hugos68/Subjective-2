@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from "$app/forms";
 	import { page } from "$app/stores";
 	import { AppBar, drawerStore, LightSwitch, menu, type DrawerSettings } from "@skeletonlabs/skeleton";
     
@@ -46,7 +47,11 @@
                     <nav class="bg-surface-200-700-token shadow-xl p-4 rounded-token list-nav" data-menu="account-drop-down-menu-header">
                         <ul>
                             <li><a href="/account">Account</a></li>
-                            <li><a href="/logout">Logout</a></li>
+                            <li>
+                                <form action="/?/logout" method="POST" use:enhance>
+                                    <button type="submit" class="rounded-token p-3 w-full hover:card-glass-primary">Logout</button>
+                                </form>
+                            </li>
                         </ul>
                     </nav>
                 </span>

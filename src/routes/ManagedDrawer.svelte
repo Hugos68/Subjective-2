@@ -99,7 +99,9 @@
 					<nav class="bg-surface-200-700-token shadow-xl p-4 rounded-token menu-tl list-nav" data-menu="account-drop-down-menu-hamburger">
 						<ul>
 							<li><a class="" href="/account" on:click={() => closeHamburger()}>Account</a></li>
-							<li><a class="" href="/logout" on:click={() => closeHamburger()}>Logout</a></li>
+							<form action="/?/logout" method="POST" use:enhance>
+								<button type="submit" class="rounded-token p-3 w-full hover:card-glass-primary" on:click={() => closeHamburger()}>Logout</button>
+							</form>
 						</ul>
 					</nav>
 				</span>
