@@ -2,11 +2,11 @@ import { type Provider, AuthApiError } from '@supabase/supabase-js';
 import type {Actions, PageServerLoad} from './$types';
 import {fail, redirect} from "@sveltejs/kit";
 
-export const load: PageServerLoad = async () => {
+export const load = (async () => {
     throw redirect(303, '/home');
-};
+}) satisfies PageServerLoad;
 
-export const actions: Actions = {
+export const actions = ({
     login: async ({request, locals, url}) => {
             
         const body = Object.fromEntries(await request.formData());
@@ -94,4 +94,4 @@ export const actions: Actions = {
 
         return {success: true}
     },
-}
+}) satisfies Actions;
