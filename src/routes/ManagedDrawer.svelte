@@ -83,6 +83,30 @@
             }
 		}
 	}
+
+	const submitLogout: SubmitFunction = () => {
+        return async ({result}) => {
+            await applyAction(result);
+            if (result.type==='redirect') {
+                const t: ToastSettings = {
+                    message: 'Logged out successfully! See you later...',
+                    preset: 'success',
+                    autohide: true,
+                    timeout: 5000,
+                };
+                toastStore.trigger(t);
+            }
+            else if (result.type='failure' && result.data) {
+                const t: ToastSettings = {
+                    message: result.data.message,
+                    preset: 'error',
+                    autohide: true,
+                    timeout: 5000,
+                };
+                toastStore.trigger(t);
+            }   
+        }
+    }
 </script>
 
 <Drawer	>
@@ -99,7 +123,7 @@
 					<nav class="bg-surface-200-700-token shadow-xl p-4 rounded-token menu-tl list-nav" data-menu="account-drop-down-menu-hamburger">
 						<ul>
 							<li><a class="" href="/account" on:click={() => closeHamburger()}>Account</a></li>
-							<form action="/?/logout" method="POST" use:enhance>
+							<form action="/?/logout" method="POST" use:enhance={submitLogout}>
 								<button type="submit" class="rounded-token p-3 w-full hover:card-glass-primary" on:click={() => closeHamburger()}>Logout</button>
 							</form>
 						</ul>

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { enhance } from "$app/forms";
+	import { applyAction, enhance, type SubmitFunction } from "$app/forms";
 	import { page } from "$app/stores";
-	import { AppBar, drawerStore, LightSwitch, menu, type DrawerSettings } from "@skeletonlabs/skeleton";
+	import { AppBar, drawerStore, LightSwitch, menu, toastStore, type DrawerSettings, type ToastSettings } from "@skeletonlabs/skeleton";
     
     function openHamburger(): void {
         const settings: DrawerSettings = {
@@ -24,6 +24,30 @@
         };
         drawerStore.open(settings);
 	}
+
+    const submitLogout: SubmitFunction = () => {
+        return async ({result}) => {
+            await applyAction(result);
+            if (result.type==='redirect') {
+                const t: ToastSettings = {
+                    message: 'Logged out successfully! See you later...',
+                    preset: 'success',
+                    autohide: true,
+                    timeout: 5000,
+                };
+                toastStore.trigger(t);
+            }
+            else if (result.type='failure' && result.data) {
+                const t: ToastSettings = {
+                    message: result.data.message,
+                    preset: 'error',
+                    autohide: true,
+                    timeout: 5000,
+                };
+                toastStore.trigger(t);
+            }   
+        }
+    }
 
     $: loggedIn = $page.data.session!==null;
 </script>
@@ -48,7 +72,7 @@
                         <ul>
                             <li><a href="/account">Account</a></li>
                             <li>
-                                <form action="/?/logout" method="POST" use:enhance>
+                                <form action="/?/logout" method="POST" use:enhance={submitLogout}>
                                     <button type="submit" class="rounded-token p-3 w-full hover:card-glass-primary">Logout</button>
                                 </form>
                             </li>

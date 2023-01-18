@@ -1,31 +1,6 @@
 <script lang="ts">
-	import { applyAction, enhance, type SubmitFunction } from "$app/forms";
 	import { page } from "$app/stores";
-	import { Avatar, toastStore, type ToastSettings } from "@skeletonlabs/skeleton";
-    
-    const submitLogout: SubmitFunction = () => {
-        return async ({result}) => {
-            await applyAction(result);
-            if (result.type==='redirect') {
-                const t: ToastSettings = {
-                    message: 'Logged out successfully, See you later...',
-                    preset: 'success',
-                    autohide: true,
-                    timeout: 5000,
-                };
-                toastStore.trigger(t);
-            }
-            else if (result.type='failure' && result.data) {
-                const t: ToastSettings = {
-                    message: result.data.message,
-                    preset: 'error',
-                    autohide: true,
-                    timeout: 5000,
-                };
-                toastStore.trigger(t);
-            }   
-        }
-    }
+	import { Avatar} from "@skeletonlabs/skeleton";
 </script>
 
 <h1 class="text-center py-12">Account</h1>
