@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/stores";
-	import { AppBar, drawerStore, LightSwitch, type DrawerSettings } from "@skeletonlabs/skeleton";
-    import AccountDropDownButton from "$lib/components/AccountDropDownButton.svelte"
+	import { AppBar, drawerStore, LightSwitch, menu, type DrawerSettings } from "@skeletonlabs/skeleton";
     
     function openHamburger(): void {
         const settings: DrawerSettings = {
@@ -40,7 +39,17 @@
             {#if !loggedIn} 
                 <button class="btn bg-primary-400-500-token" on:click={() => openConnect()}>Connect</button>
             {:else}
-                <AccountDropDownButton />
+                <span class="relative">
+                    <button class="btn btn-sm" use:menu={{ menu: 'account-drop-down-menu-header' }} on:click={() => console.log("click")}>
+                        <svg class="h-6 w-6 text-token" fill="currentColor" viewBox="0 0 32 32"><path d="M16,16A7,7,0,1,0,9,9,7,7,0,0,0,16,16ZM16,4a5,5,0,1,1-5,5A5,5,0,0,1,16,4Z"/><path d="M17,18H15A11,11,0,0,0,4,29a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1A11,11,0,0,0,17,18ZM6.06,28A9,9,0,0,1,15,20h2a9,9,0,0,1,8.94,8Z"/></svg>
+                    </button>
+                    <nav class="bg-surface-200-700-token shadow-xl p-4 rounded-token list-nav" data-menu="account-drop-down-menu-header">
+                        <ul>
+                            <li><a href="/account">Account</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </nav>
+                </span>
             {/if}
         </nav>
         <div class="h-[calc(0.5*var(--header-height))] w-0.5 bg-surface-400-500-token hidden md:block"></div>
