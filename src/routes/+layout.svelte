@@ -30,7 +30,6 @@
 	import OnMount from '$lib/components/OnMount.svelte';
 	import ManagedDrawer from './ManagedDrawer.svelte';
 	import Footer from './Footer.svelte';
-	import { fly } from 'svelte/transition';
 	import { page } from '$app/stores';
 </script>
 
