@@ -1,6 +1,10 @@
 import { type Provider, AuthApiError } from '@supabase/supabase-js';
-import type {Actions} from './$types';
+import type {Actions, PageServerLoad} from './$types';
 import {fail, redirect} from "@sveltejs/kit";
+
+export const load: PageServerLoad = async () => {
+    throw redirect(303, '/home');
+};
 
 export const actions: Actions = {
     login: async ({request, locals, url}) => {
