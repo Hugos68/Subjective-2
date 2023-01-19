@@ -37,12 +37,12 @@
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
 	<OnMount>
 		{#key $page.route.id}
-			<main class="p-4">
+			<main class="p-[var(--body-padding)] h-full">
 				<slot />  
 			</main>
 		{/key}
 	</OnMount>
-	<svelte:fragment slot="footer"><Footer /></svelte:fragment>
+	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
 </AppShell>
 
 <ManagedDrawer />
