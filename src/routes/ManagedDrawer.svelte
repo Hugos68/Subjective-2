@@ -3,8 +3,10 @@
 	import { invalidateAll } from "$app/navigation";
 	import { page } from "$app/stores";
 	import { Drawer, drawerStore, LightSwitch, menu, storeLightSwitch, Tab, TabGroup, toastStore, type DrawerSettings, type ToastSettings } from "@skeletonlabs/skeleton";	
+	import type { ActionResult } from "@sveltejs/kit";
 	import { writable, type Writable } from "svelte/store";
 	import { fly } from "svelte/transition";
+	import type { Action } from "./$types";
 
 	function closeHamburger(): void {
 		drawerStore.close();
@@ -48,7 +50,7 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure' && result.data) {
+            else if (result.type='failure') {
                 const t: ToastSettings = {
                     message: result.data?.message,
                     preset: 'error',
@@ -72,7 +74,7 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure' && result.data) {
+            else if (result.type='failure') {
                 const t: ToastSettings = {
                     message: result.data?.message,
                     preset: 'error',
@@ -96,7 +98,7 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure' && result.data) {
+            else if (result.type='failure') {
                 const t: ToastSettings = {
                     message: result.data.message,
                     preset: 'error',

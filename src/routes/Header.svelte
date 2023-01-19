@@ -37,9 +37,9 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure' && result.data) {
+            else if (result.type='failure') {
                 const t: ToastSettings = {
-                    message: result.data.message,
+                    message: result.data?.message,
                     preset: 'error',
                     autohide: true,
                     timeout: 5000,
@@ -52,7 +52,7 @@
     $: loggedIn = $page.data.session!==null;
 </script>
 
-<AppBar class="h-[var(--header-height)]">
+<AppBar class="fixed w-full h-[var(--header-height)]">
 	<svelte:fragment slot="lead">
         <a href="/" class="font-bold text-4xl text-primary-400-500-token">Subjective</a>
     </svelte:fragment>
