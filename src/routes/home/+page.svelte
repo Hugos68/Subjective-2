@@ -3,9 +3,9 @@
     import {cubicInOut} from "svelte/easing";
 </script>
 
-<div class="flex justify-end items-center">
-    <h1 class="text-end text-[clamp(3.25rem,15vw,10rem)] leading-snug flex flex-col" in:fly={{x:-250, duration: 750, easing: cubicInOut}}>
-        <span>Welcome to</span>
-        <span class="gradient-heading" in:fly={{delay: 100, x: -250, duration: 1000}}>Subjective</span>
-    </h1>
-</div>
+
+<h1 class="text-end text-[clamp(3.25rem,15vw,10rem)] leading-snug flex flex-col" in:fly={{x:-250, duration: 750, easing: cubicInOut}}>
+    <span>Welcome to</span>
+    <span class="gradient-heading" in:fly={{delay: 100, x: -250, duration: 1000}}>Subjective</span>
+</h1>
+
