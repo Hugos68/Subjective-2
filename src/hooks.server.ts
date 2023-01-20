@@ -27,6 +27,5 @@ export const handleConsentCookie = (async ({ event, resolve }) => {
     return resolve(event);
 }) satisfies Handle;
 
-
 export const handle: Handle = sequence(handleAuth, handleAuthRouting, handleConsentCookie);
 

@@ -21,7 +21,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-
+	
 	onMount(() => {
 		const {data: { subscription }} = supabaseClient.auth.onAuthStateChange(() => invalidate('supabase:auth'));
 		return () => subscription.unsubscribe();
