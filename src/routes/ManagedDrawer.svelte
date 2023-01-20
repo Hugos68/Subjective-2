@@ -2,10 +2,10 @@
 	import { applyAction, enhance, type SubmitFunction } from "$app/forms";
 	import { invalidateAll } from "$app/navigation";
 	import { page } from "$app/stores";
-	import { Drawer, drawerStore, focusTrap, LightSwitch, menu, storeLightSwitch, Tab, TabGroup, toastStore, type DrawerSettings, type ToastSettings } from "@skeletonlabs/skeleton";	
+	import { Drawer, drawerStore, LightSwitch, menu, storeLightSwitch, Tab, TabGroup, toastStore, type DrawerSettings, type ToastSettings } from "@skeletonlabs/skeleton";	
 	import { writable, type Writable } from "svelte/store";
 	import { fly } from "svelte/transition";
-	
+
 	function closeHamburger(): void {
 		drawerStore.close();
 	}	
@@ -161,8 +161,8 @@
 			<Tab value="register">Register</Tab>
 		</TabGroup>
 		<div class="p-12 mx-auto w-[min(50rem,100%)]">
-			{#if $storeTab==="login"}
-			<form class="flex flex-col items-center gap-6" action="/?/login" method="POST" use:focusTrap={true} use:enhance={submitLogin}>
+		{#if $storeTab==="login"}
+			<form class="flex flex-col items-center gap-6" action="/?/login" method="POST" use:enhance={submitLogin}>
 				<h2>Login</h2>
 				<label class="relative w-full">
 					<span>Email:</span>
