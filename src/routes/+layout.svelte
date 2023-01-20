@@ -9,11 +9,33 @@
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
 
+	import { AppShell, Toast, toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	import Header from './Header.svelte';
+	import ManagedDrawer from './ManagedDrawer.svelte';
+	import Footer from './Footer.svelte';
+
 	import { supabaseClient } from '$lib/supabase';
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
+	import type { PageData } from './$types';
+	import { browser } from '$app/environment';
+
+	export let data: PageData;
+	const {consentCookie} = data;
+
+	// Cookie toast
+	if (browser && !consentCookie) {
+		const t: ToastSettings = {
+			message: '👋 Hello! We use Cookies.',
+			position: 'bl',
+			background: 'bg-secondary-500',
+		};
+		toastStore.trigger(t);		
+	}
+
 	onMount(() => {
+
 		const {
 			data: { subscription },
 		} = supabaseClient.auth.onAuthStateChange(() => {
@@ -24,11 +46,6 @@
 			subscription.unsubscribe();
 		}
 	});
-
-	import { AppShell, Toast } from '@skeletonlabs/skeleton';
-	import Header from './Header.svelte';
-	import ManagedDrawer from './ManagedDrawer.svelte';
-	import Footer from './Footer.svelte';
 </script>
 
 <AppShell>	
@@ -40,8 +57,4 @@
 	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
 </AppShell>
 
-
-
 <Toast />
-
-
