@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fly } from "svelte/transition";
+	import { fade, fly } from "svelte/transition";
     import {cubicInOut} from "svelte/easing";
 </script>
 
@@ -8,7 +8,7 @@
         <span class="break-normal">Welcome to</span>
         <span class="gradient-heading" in:fly={{delay: 100, x: -250, duration: 1000}}>Subjective</span>
     </h1>
-    <figure class="relative w-[clamp(15rem,30vw,30rem)] aspect-square">
+    <figure class="relative w-[clamp(15rem,30vw,30rem)] aspect-square" in:fade={{delay: 100, duration: 1000}}>
         <section class="w-[clamp(15rem,30vw,30rem)] aspect-square rounded-full absolute bg-gradient-to-r from-secondary-500 to-primary-500 blur-[128px]"></section>
         <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_esg1l8r1.json"  speed="0.25" loop  autoplay></lottie-player>
     </figure>
