@@ -100,5 +100,13 @@ export const actions = ({
             throw fail(500, {message: "Something went wrong logging you out."});
         }
         throw redirect(303,'/');
+    },
+    setCookieConsent: async ({cookies, url}) => {
+        const serializedCookieConsent: string | null = url.searchParams.get('cookie');
+        if (!serializedCookieConsent) return fail(400, {message: "Action requires cookie of type 'ConsentCookie'"});
+        cookies.set('consent', serializedCookieConsent, { path: '/'});
+        return {
+            success: true
+        }
     }
 }) satisfies Actions;

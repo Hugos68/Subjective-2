@@ -21,5 +21,12 @@ export const handleAuthRouting = (async ({ event, resolve }) => {
     return resolve(event);
 }) satisfies Handle;
 
+export const handleConsentCookie = (async ({ event, resolve }) => {
+    const serializedCookieConsent: string | undefined = event.cookies.get('consent');
+    event.locals.consentCookie = serializedCookieConsent ? JSON.parse(serializedCookieConsent) as ConsentCookie : null;
+    return resolve(event);
+}) satisfies Handle;
 
-export const handle: Handle = sequence(handleAuth, handleAuthRouting)
+
+export const handle: Handle = sequence(handleAuth, handleAuthRouting, handleConsentCookie);
+

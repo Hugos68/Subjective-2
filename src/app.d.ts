@@ -7,7 +7,8 @@ declare global {
 
         interface Locals {
             sb: TypedSupabaseClient,
-            session: Session | null
+            session: Session | null,
+            consentCookie: ConsentCookie | null
         }
 
         interface PageData {
