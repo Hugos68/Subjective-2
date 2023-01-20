@@ -27,25 +27,20 @@
 
 	import { AppShell, Toast } from '@skeletonlabs/skeleton';
 	import Header from './Header.svelte';
-	import OnMount from '$lib/components/OnMount.svelte';
 	import ManagedDrawer from './ManagedDrawer.svelte';
 	import Footer from './Footer.svelte';
-	import { page } from '$app/stores';
 </script>
 
 <AppShell>	
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<OnMount>
-		{#key $page.route.id}
-			<main class="p-[var(--body-padding)] min-h-screen">
-				<slot />  
-			</main>
-		{/key}
-	</OnMount>
+	<svelte:fragment slot="sidebarRight"><ManagedDrawer /></svelte:fragment>
+	<main class="p-[var(--body-padding)] min-h-screen">
+		<slot />  
+	</main>
 	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
 </AppShell>
 
-<ManagedDrawer />
+
 
 <Toast />
 

@@ -1,28 +1,28 @@
 <footer class="bg-surface-100-800-token w-screen flex flex-col md:flex-row justify-between py-[10vh] px-[10vw]">
-    <div class="flex flex-col h-32">
+    <nav class="flex flex-col h-32">
         <p>LOGO</p>
         <p>Subjective</p>
         <p>All Rights Reserved</p>
-    </div>
-    <div class="flex flex-col h-32">
-        <p>Contact Us</p>
-        <a>Subjective mail</a>
-    </div>
-    <div class="flex flex-col h-32">
-        <p>Socials</p>
-        <a>Instagram</a>
-        <a>Twitter</a>
-        <a>Facebook</a>
-    </div>
-    <div class="flex flex-col h-32">
-        <p>Production</p>
-        <a>Branding</a>
-        <a>Clothing</a>
-    </div>
-    <div class="flex flex-col h-32">
-        <p>Legal</p>
-        <a>Terms Of Use</a>
-        <a>Privacy Policy</a>
-        <a>Cookie Policy</a>
-    </div>
+    </nav>
+    <nav class="flex flex-col h-32">
+        <p class="font-bold">Socials</p>
+        <a href="https://www.instagram.com/subjective/">Instagram</a>
+        <a href="https://twitter.com/subjective">Twitter</a>
+        <a href="https://www.facebook.com/subjective">Facebook</a>
+    </nav>
+    <nav class="flex flex-col h-32">
+        <p class="font-bold">Production</p>
+        <a href="/branding">Branding</a>
+        <a href="/clothing">Clothing</a>
+    </nav>
+    <nav class="flex flex-col h-32">
+        <p class="font-bold">Legal</p>
+        <a href="/legal#terms-of-use">Terms Of Use</a>
+        <a href="/legal#privacy">Privacy Policy</a>
+        <a href="/legal#cookies">Cookie Policy</a>
+    </nav>
+    <nav class="flex flex-col h-32">
+        <p class="font-bold">Contact Us</p>
+        <p>subjective@gmail.com</p>
+    </nav>
 </footer>
