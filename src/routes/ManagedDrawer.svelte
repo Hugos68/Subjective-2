@@ -3,6 +3,7 @@
 	import { invalidateAll } from "$app/navigation";
 	import { page } from "$app/stores";
 	import { Drawer, drawerStore, LightSwitch, menu, storeLightSwitch, Tab, TabGroup, toastStore, type DrawerSettings, type ToastSettings } from "@skeletonlabs/skeleton";	
+	import type { ActionResult } from "@sveltejs/kit";
 	import { writable, type Writable } from "svelte/store";
 	import { fly } from "svelte/transition";
 
@@ -48,7 +49,7 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure') {
+            else if (result.type==='failure') {
                 const t: ToastSettings = {
                     message: result.data?.message,
                     preset: 'error',
@@ -72,7 +73,7 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure') {
+            else if (result.type==='failure') {
                 const t: ToastSettings = {
                     message: result.data?.message,
                     preset: 'error',
@@ -85,7 +86,7 @@
 	}
 
 	const submitLogout: SubmitFunction = () => {
-        return async ({result}) => {
+        return async ({result}): Promise<void> => {
             await applyAction(result);
             if (result.type==='redirect') {
                 const t: ToastSettings = {
@@ -96,9 +97,9 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure') {
+            else if (result.type==='failure') {
                 const t: ToastSettings = {
-                    message: result.data.message,
+                    message: result.data?.message,
                     preset: 'error',
                     autohide: true,
                     timeout: 5000,

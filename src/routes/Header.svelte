@@ -37,7 +37,7 @@
                 };
                 toastStore.trigger(t);
             }
-            else if (result.type='failure') {
+            else if (result.type==='failure') {
                 const t: ToastSettings = {
                     message: result.data?.message,
                     preset: 'error',
