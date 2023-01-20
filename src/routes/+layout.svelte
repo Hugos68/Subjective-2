@@ -37,7 +37,7 @@
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
 	<OnMount>
 		{#key $page.route.id}
-			<main class="p-[var(--body-padding)] h-full">
+			<main class="p-[var(--body-padding)] min-h-screen">
 				<slot />  
 			</main>
 		{/key}
