@@ -3,7 +3,7 @@
     import {cubicInOut} from "svelte/easing";
 </script>
 
-<div class="page container mx-auto flex justify-evenly flex-col lg:flex-row gap-12 lg:gap-0 items-center">
+<div class="base-page-container flex justify-evenly flex-col lg:flex-row gap-12 lg:gap-0 items-center">
     <div class="flex flex-col items-center gap-10">
         <h1 class="text-center text-[clamp(3.25rem,15vw,8rem)] font-bold drop-shadow-2xl leading-snug flex flex-col" in:fly={{x:-250, duration: 750, easing: cubicInOut}}>
             <span class="whitespace-nowrap">Welcome to</span>
