@@ -29,8 +29,8 @@
 	});
 
 	afterNavigate(() => {
-		const main: HTMLElement | null = document.querySelector('#page');
-		if (main) main.scrollTo(0, 0);
+		const page: HTMLElement | null = document.getElementById('page');
+		if (page) page.scrollTo(0, 0);
 	});
 </script>
 
