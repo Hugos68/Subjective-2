@@ -19,6 +19,7 @@
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import type { LayoutData } from './$types';
+	import { page } from '$app/stores';
 
 	export let data: LayoutData;
 	
@@ -36,8 +37,11 @@
 {/if}
 
 <!-- MAIN STRUCTURE -->
-<AppShell>	
-	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<div class="base-page-container"><slot /></div>
-	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
-</AppShell>
+<!-- The key block is here to solve the bug where the scroll position of the page is not reset when routing to different pages -->
+{#key $page.route.id}
+	<AppShell>	
+		<svelte:fragment slot="header"><Header /></svelte:fragment>
+		<div class="base-page-container"><slot /></div>
+		<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
+	</AppShell>
+{/key}
