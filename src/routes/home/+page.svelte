@@ -4,8 +4,8 @@
 </script>
 
 <main class="flex justify-evenly flex-col lg:flex-row gap-12 lg:gap-0 items-center">
-    <h1 class="text-center text-[clamp(3.25rem,11vw,10rem)] leading-snug flex flex-col" in:fly={{x:-250, duration: 750, easing: cubicInOut}}>
-        <span class="break-normal">Welcome to</span>
+    <h1 class="text-center text-[clamp(3.25rem,11vw,10rem)] font-bold drop-shadow-2xl leading-snug flex flex-col" in:fly={{x:-250, duration: 750, easing: cubicInOut}}>
+        Welcome to
         <span class="gradient-heading" in:fly={{delay: 100, x: -250, duration: 1000}}>Subjective</span>
     </h1>
     <figure class="relative w-[clamp(20rem,35vw,35rem)] aspect-square" in:fade={{delay: 100, duration: 1000}}>
