@@ -38,6 +38,6 @@
 <!-- MAIN STRUCTURE -->
 <AppShell>	
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<slot />
+	<div class="base-page-container"><slot /></div>
 	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
 </AppShell>
