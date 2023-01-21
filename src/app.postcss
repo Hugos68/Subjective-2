@@ -10,3 +10,16 @@ html, body { @apply h-full overflow-hidden; }
 .gradient-heading {
     @apply bg-gradient-to-r from-secondary-500 to-primary-500 bg-clip-text text-transparent box-decoration-clone;
 }
+
+.custom-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.75);
+    }
+    50% {
+      transform: scale(1);
+    }
+  }

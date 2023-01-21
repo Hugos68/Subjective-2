@@ -9,7 +9,7 @@
         <span class="gradient-heading" in:fly={{delay: 100, x: -250, duration: 1000}}>Subjective</span>
     </h1>
     <figure class="relative w-[clamp(20rem,35vw,35rem)] aspect-square" in:fade={{delay: 100, duration: 1000}}>
-        <section class="w-[clamp(20rem,35vw,35rem)] aspect-square rounded-full absolute bg-gradient-to-r from-secondary-500 to-primary-500 blur-[128px]"></section>
+        <section class="w-[clamp(20rem,35vw,35rem)] aspect-square rounded-full absolute bg-gradient-to-r from-secondary-500 to-primary-500 blur-[96px] custom-pulse"></section>
         <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_esg1l8r1.json"  speed="0.25" loop  autoplay></lottie-player>
     </figure>
 </main>
