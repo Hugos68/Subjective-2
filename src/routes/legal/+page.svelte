@@ -1,7 +1,6 @@
-<main class="mx-auto max-w-[80ch]">
+<div class="page">
     <h1 class="text-4xl text-center mb-10">Legal</h1>
 
-    
     <h2 id="terms-of-use" class="text-3xl text-center mt-8 mb-4">Terms of Use</h2>
     
     <h3 class="text-xl mt-4 mb-2">1. Terms</h3>
@@ -74,4 +73,4 @@
     <h2 id="copyright" class="text-3xl text-center mt-8 mb-4">Copyright</h2>
 
     <p class="py-2">Copyright ©. All rights reserved.  All trademarks, logos and service marks displayed on the Site are our property or the property of other third-parties. You are not permitted to use these Marks without our prior written consent or the consent of such third party which may own the Marks.</p>
-</main>
+</div>

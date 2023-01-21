@@ -36,8 +36,8 @@
 {/if}
 
 <!-- MAIN STRUCTURE -->
-<AppShell slotPageContent="scroll-p-[var(--header-height)] min-h-screen px-4 py-[15vh] bg-red">	
+<AppShell>	
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<slot />  
+	<slot />
 	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
 </AppShell>

@@ -52,7 +52,7 @@
     $: loggedIn = $page.data.session!==null;
 </script>
 
-<AppBar class="fixed w-full h-[var(--header-height)]">
+<AppBar class="w-full h-[var(--header-height)]">
 	<svelte:fragment slot="lead">
         <a href="/" class="font-bold text-4xl leading-snug gradient-heading">Subjective</a>
     </svelte:fragment>
