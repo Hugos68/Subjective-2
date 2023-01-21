@@ -10,10 +10,10 @@
 	import '../app.postcss';
 
 	import { AppShell, Toast } from '@skeletonlabs/skeleton';
-	import Header from './Header.svelte';
+	import Header from '$lib/components/Header.svelte';
 	import CookiePopup from "$lib/components/CookiePopup.svelte";
-	import ManagedDrawer from './ManagedDrawer.svelte';
-	import Footer from './Footer.svelte';
+	import ManagedDrawer from '$lib/components/ManagedDrawer.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	import { supabaseClient } from '$lib/supabase';
 	import { invalidate } from '$app/navigation';

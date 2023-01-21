@@ -32,7 +32,7 @@
 		<p><strong>Cookie Policy</strong></p>
 	</div>
 	<p class="text-sm">
-		We care about your data, and we'd love to use cookies in accordance with our <a class="text-secondary-600" href="/legal#privacy-policy">Privacy Policy</a> to make your experience better.
+		We care about your data, and we'd love to use cookies in accordance with our <a class="text-secondary-600" href="/legal#cookies">Privacy Policy</a> to make your experience better.
 	</p>
 	<form class="mx-auto flex justify-between items-center w-full" method="post" use:enhance={submitCookiePreference}>
 		<button class="btn btn-ghost" type="submit" formaction="/?/setCookieConsent&cookie={JSON.stringify(rejectConsentCookie)}">Reject</button>
