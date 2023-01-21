@@ -1,9 +1,11 @@
 /*place global styles here */
 html, body { @apply h-full overflow-hidden; }
-
+:root {
+    --header-height: 4.5rem;
+}
 
 .page {
-    @apply h-[calc(100vh-4.5rem)] container mx-auto px-4 py-12;
+    @apply h-[calc(100vh-var(--header-height))] container mx-auto px-4 py-12;
 }
 
 .gradient-heading {
@@ -21,4 +23,4 @@ html, body { @apply h-full overflow-hidden; }
     50% {
       transform: scale(1);
     }
-  }
+}
