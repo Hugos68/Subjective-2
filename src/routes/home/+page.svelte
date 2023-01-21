@@ -3,7 +3,7 @@
     import {cubicInOut} from "svelte/easing";
 </script>
 
-<main class="flex justify-evenly flex-col lg:flex-row gap-12 lg:gap-0  items-center mt-[15vh]">
+<main class="flex justify-evenly flex-col lg:flex-row gap-12 lg:gap-0 items-center">
     <h1 class="text-center text-[clamp(3.25rem,11vw,10rem)] leading-snug flex flex-col" in:fly={{x:-250, duration: 750, easing: cubicInOut}}>
         <span class="break-normal">Welcome to</span>
         <span class="gradient-heading" in:fly={{delay: 100, x: -250, duration: 1000}}>Subjective</span>

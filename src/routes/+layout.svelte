@@ -38,7 +38,7 @@
 <!-- MAIN STRUCTURE -->
 <AppShell>	
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<main class="p-[var(--body-padding)] min-h-screen">
+	<main class="p-[var(--body-padding)] min-h-screen mt-[15vh]">
 		<slot />  
 	</main>
 	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
