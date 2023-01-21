@@ -54,7 +54,7 @@
 
 <AppBar class="fixed w-full h-[var(--header-height)]">
 	<svelte:fragment slot="lead">
-        <a href="/" class="font-bold text-4xl text-primary-400-500-token">Subjective</a>
+        <a href="/" class="font-bold text-4xl leading-snug gradient-heading">Subjective</a>
     </svelte:fragment>
 	<svelte:fragment slot="trail">
         <nav class="list-nav hidden md:flex items-center gap-4">
