@@ -9,23 +9,28 @@
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
 
-	import { AppShell, Toast } from '@skeletonlabs/skeleton';
-	import Header from '$lib/components/Header.svelte';
 	import CookiePopup from "$lib/components/CookiePopup.svelte";
 	import ManagedDrawer from '$lib/components/ManagedDrawer.svelte';
+	import { AppShell, Toast } from '@skeletonlabs/skeleton';
+	import Header from '$lib/components/Header.svelte';
+	import SlotWrapper from '$lib/components/SlotWrapper.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	import { supabaseClient } from '$lib/supabase';
-	import { invalidate } from '$app/navigation';
+	import { invalidate, afterNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import type { LayoutData } from './$types';
-	import { page } from '$app/stores';
 
 	export let data: LayoutData;
 	
 	onMount(() => {
 		const {data: { subscription }} = supabaseClient.auth.onAuthStateChange(() => invalidate('supabase:auth'));
 		return () => subscription.unsubscribe();
+	});
+
+	afterNavigate(() => {
+		const main: HTMLElement | null = document.querySelector('#page');
+		if (main) main.scrollTo(0, 0);
 	});
 </script>
 
@@ -37,11 +42,9 @@
 {/if}
 
 <!-- MAIN STRUCTURE -->
-<!-- The key block is here to solve the bug where the scroll position of the page is not reset when routing to different pages -->
-{#key $page.route.id}
-	<AppShell>	
-		<svelte:fragment slot="header"><Header /></svelte:fragment>
-		<div class="base-page-container"><slot /></div>
-		<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
-	</AppShell>
-{/key}
+<AppShell>	
+	<svelte:fragment slot="header"><Header /></svelte:fragment>
+	<SlotWrapper ><slot /></SlotWrapper>
+	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
+</AppShell>
+
