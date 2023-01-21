@@ -18,7 +18,7 @@
     <nav class="flex flex-col h-32">
         <p class="font-bold">Legal</p>
         <a href="/legal#terms-of-use">Terms Of Use</a>
-        <a href="/legal#privacy">Privacy Policy</a>
+        <a href="/legal#privacy-policy">Privacy Policy</a>
         <a href="/legal#copyright">Copyright</a>
     </nav>
     <nav class="flex flex-col h-32">
