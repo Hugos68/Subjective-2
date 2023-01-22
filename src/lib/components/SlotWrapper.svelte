@@ -4,6 +4,7 @@
     onMount(() => mounted = true);
 </script>
 
+
 <div class="base-page-container">
     {#if mounted}
         <slot />
