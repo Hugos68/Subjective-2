@@ -21,7 +21,7 @@
 </script>
 
 
-<ol class="breadcrumb w-full capitalize h-8 ml-[10vw] py-[5vh]">
+<ol class="breadcrumb w-full capitalize h-8 ml-[7.5vw] mt-[7.5vh]">
     {#if breadCrumbs.length > 1}
         {#each breadCrumbs as crumb, i}
             {#if !lastCrumb(crumb)}
@@ -33,4 +33,3 @@
         {/each}
     {/if}
 </ol>
-

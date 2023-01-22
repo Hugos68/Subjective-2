@@ -45,8 +45,10 @@
 <!-- MAIN STRUCTURE -->
 <AppShell>	
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<BreadCrumbs />
-	<SlotWrapper ><slot /></SlotWrapper>
+	<SlotWrapper>
+		<BreadCrumbs />
+		<slot />
+	</SlotWrapper>
 	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
 </AppShell>
 
