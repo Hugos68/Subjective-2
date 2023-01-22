@@ -9,15 +9,26 @@
     const lastCrumb = (crumb: string): boolean => {
         return breadCrumbs.indexOf(crumb) === breadCrumbs.length-1;
     }
+    
+    const getCrumbHref = (crumb: string): string => {
+        let href: string = "";
+        for (const currentCrumb of breadCrumbs) {
+            href += "/" + currentCrumb;
+            if (currentCrumb===crumb) break;
+        }
+        return href;
+    }
 </script>
 
 
-<ol class="breadcrumb">
-    {#each breadCrumbs as crumb}
-        <li class="crumb"><a href="/{crumb}" class="capitalize">{crumb}</a></li>
-        {#if !lastCrumb(crumb)}
-            <li class="crumb-separator" aria-hidden>&rsaquo;</li>
-        {/if}
-    {/each}
+<ol class="breadcrumb w-full h-8 ml-[10vw] py-[5vh]">
+    {#if breadCrumbs.length > 1}
+        {#each breadCrumbs as crumb}
+            <li class="crumb"><a href={getCrumbHref(crumb)} class="capitalize">{crumb}</a></li>
+            {#if !lastCrumb(crumb)}
+                <li class="crumb-separator" aria-hidden>&rsaquo;</li>
+            {/if}
+        {/each}
+    {/if}
 </ol>
 
