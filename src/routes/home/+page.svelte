@@ -11,7 +11,7 @@
             <span class="gradient-heading" in:fly={{delay: 100, x: -250, duration: 1000}}>Subjective</span>
         </h1>
         <p class="text-center font-semibold max-w-[65ch]" in:fade={{delay: 500, duration: 1000}}>
-            Subjective provides some of the best quality clothing for the lowest price possible, we accomplish this by taking a different approach in this hot industry, stop wanting difference, BE the difference.
+            Subjective provides some of the best quality clothing for the lowest price possible, we accomplish this by taking a different approach in this hot industry, stop wanting change, BE the difference.
         </p>
     </div>
 
