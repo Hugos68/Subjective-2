@@ -15,7 +15,7 @@
         </p>
     </div>
 
-    <figure class="relative w-[clamp(20rem,35vw,35rem)] aspect-square" in:fade={{delay: 100, duration: 1000}}>
+    <figure class="relative w-[clamp(20rem,35vw,35rem)] aspect-square z-[-1]" in:fade={{delay: 100, duration: 1000}}>
         <section class="absolute w-full aspect-square rounded-full bg-gradient-to-r from-secondary-500 to-primary-500 blur-[96px] custom-pulse"></section>
         <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_esg1l8r1.json"  speed="0.25" loop  autoplay></lottie-player>
     </figure>
