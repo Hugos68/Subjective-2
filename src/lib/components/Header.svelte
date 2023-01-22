@@ -18,7 +18,6 @@
         const settings: DrawerSettings = {
             id: 'connect',
             position: 'top',
-            height: 'h-max',
             blur: 'backdrop-blur-sm',
             duration: 250
         };

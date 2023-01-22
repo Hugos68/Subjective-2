@@ -15,6 +15,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import SlotWrapper from '$lib/components/SlotWrapper.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import BreadCrumbs from '$lib/components/BreadCrumbs.svelte';
 
 	import { supabaseClient } from '$lib/supabase';
 	import { invalidate, afterNavigate } from '$app/navigation';
@@ -44,6 +45,7 @@
 <!-- MAIN STRUCTURE -->
 <AppShell>	
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
+	<BreadCrumbs />
 	<SlotWrapper ><slot /></SlotWrapper>
 	<svelte:fragment slot="pageFooter"><Footer /></svelte:fragment>
 </AppShell>
