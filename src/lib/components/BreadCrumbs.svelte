@@ -21,12 +21,14 @@
 </script>
 
 
-<ol class="breadcrumb w-full h-8 ml-[10vw] py-[5vh]">
+<ol class="breadcrumb w-full capitalize h-8 ml-[10vw] py-[5vh]">
     {#if breadCrumbs.length > 1}
-        {#each breadCrumbs as crumb}
-            <li class="crumb"><a href={getCrumbHref(crumb)} class="capitalize">{crumb}</a></li>
+        {#each breadCrumbs as crumb, i}
             {#if !lastCrumb(crumb)}
+                <li class="crumb"><a href={getCrumbHref(crumb)}>{crumb}</a></li>
                 <li class="crumb-separator" aria-hidden>&rsaquo;</li>
+            {:else}
+                <li>{crumb}</li>
             {/if}
         {/each}
     {/if}
