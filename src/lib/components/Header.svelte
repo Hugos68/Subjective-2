@@ -20,6 +20,7 @@
             id: 'connect',
             position: 'top',
             blur: 'backdrop-blur-sm',
+            height: 'h-max',
             duration: 250
         };
         drawerStore.open(settings);

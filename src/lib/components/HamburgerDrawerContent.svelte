@@ -13,7 +13,7 @@
             blur: 'backdrop-blur-sm',
             duration: 250
         };
-		
+        
 		// This timeout is required in order for the hamburger drawer to close properly before opening the connect drawer
 		setTimeout(() => drawerStore.open(settings), 300);
 	}
