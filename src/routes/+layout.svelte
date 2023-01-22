@@ -11,14 +11,14 @@
 
 	import CookiePopup from "$lib/components/CookiePopup.svelte";
 	import ManagedDrawer from '$lib/components/ManagedDrawer.svelte';
-	import { AppShell, Toast } from '@skeletonlabs/skeleton';
+	import { AppShell, Toast, drawerStore } from '@skeletonlabs/skeleton';
 	import Header from '$lib/components/Header.svelte';
 	import SlotWrapper from '$lib/components/SlotWrapper.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import BreadCrumbs from '$lib/components/BreadCrumbs.svelte';
 
 	import { supabaseClient } from '$lib/supabase';
-	import { invalidate, afterNavigate } from '$app/navigation';
+	import { invalidate, afterNavigate, beforeNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import type { LayoutData } from './$types';
 
@@ -28,7 +28,9 @@
 		const {data: { subscription }} = supabaseClient.auth.onAuthStateChange(() => invalidate('supabase:auth'));
 		return () => subscription.unsubscribe();
 	});
-
+	beforeNavigate(() => {
+		drawerStore.close();
+	})
 	afterNavigate(() => {
 		const page: HTMLElement | null = document.getElementById('page');
 		if (page) page.scrollTo(0, 0);
